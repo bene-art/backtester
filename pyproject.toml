@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "backtester"
+version = "0.1.0"
+description = "Walk-forward sports betting backtester. Synthetic data, strategy comparison, zero lookahead."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Benjamin Easington" }]
+dependencies = ["betting-math-kit>=0.3.0"]
+
+[project.optional-dependencies]
+tracker = ["bet-tracker>=0.1.0"]
+dev = ["pytest>=7.0", "mypy>=1.0", "ruff>=0.4"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
