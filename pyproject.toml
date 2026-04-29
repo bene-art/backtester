@@ -10,10 +10,10 @@ readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
 authors = [{ name = "Benjamin Easington" }]
-dependencies = ["betting-math-kit>=0.3.0"]
+dependencies = ["betting-math-kit @ git+https://github.com/bene-art/betting-math-kit@main"]
 
 [project.optional-dependencies]
-tracker = ["bet-tracker>=0.1.0"]
+tracker = ["bet-tracker @ git+https://github.com/bene-art/bet-tracker@main"]
 dev = ["pytest>=7.0", "mypy>=1.0", "ruff>=0.4"]
 
 [tool.pytest.ini_options]
