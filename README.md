@@ -6,6 +6,8 @@
 
 Walk-forward sports betting backtester. Synthetic data, strategy comparison, zero lookahead bias. Pure Python.
 
+> **Status:** Stable. Pulled from a larger private system to demonstrate this slice as a standalone tool. Treat as a snapshot, not current production.
+
 ## Where this fits
 
 [props-scorer](https://github.com/bene-art/props-scorer) tells you *what's going to happen*. [betting-math-kit](https://github.com/bene-art/betting-math-kit) tells you *what to do about it*. [bet-tracker](https://github.com/bene-art/bet-tracker) answers *did it work?* This repo answers the question before all of that: **would this strategy have worked?**
