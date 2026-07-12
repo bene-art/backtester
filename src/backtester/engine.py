@@ -110,7 +110,9 @@ def _evaluate_game(game: Game, bankroll: float, config: BacktestConfig) -> BetRe
     edge_home = game.model_prob_home - fair_home
     edge_away = model_prob_away - fair_away
 
-    # Pick the best side
+    # Pick the best side — ties go to home (arbitrary but deterministic).
+    # This creates a slight home bias when edges are equal; documented
+    # rather than changed so backtests are reproducible.
     if edge_home >= edge_away and edge_home >= config.min_edge:
         side = "home"
         odds = game.home_odds
