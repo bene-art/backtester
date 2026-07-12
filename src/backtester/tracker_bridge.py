@@ -28,6 +28,10 @@ def replay_to_tracker(
     immediately settled. The tracker's bankroll starts with a
     deposit matching the backtest's starting bankroll.
 
+    Closing line: set to the same odds as the opening line, because
+    synthetic backtests have no line movement. CLV will be ~0 by
+    construction — this is expected, not a bug.
+
     Args:
         result: A completed BacktestResult.
         db_path: Path to SQLite database (":memory:" for in-memory).
@@ -62,6 +66,9 @@ def replay_to_tracker(
             fair_prob=record.fair_prob,
             edge=record.edge,
         )
+
+        # Synthetic data has no line movement; opening == closing.
+        tracker.set_closing_odds(bet_id, record.odds)
 
         if record.won is True:
             tracker.settle(bet_id, BetStatus.WON)
