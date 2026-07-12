@@ -128,7 +128,11 @@ class TestDevigMethods:
     def test_devig_methods_produce_different_edge_distributions(self):
         """Different devig methods should yield different edge estimates."""
         games = generate_games(n=100, seed=42)
-        r_mult = run_backtest(games, BacktestConfig(devig_method="multiplicative", min_edge=0.01))
-        r_power = run_backtest(games, BacktestConfig(devig_method="power", min_edge=0.01))
+        r_mult = run_backtest(
+            games, BacktestConfig(devig_method="multiplicative", min_edge=0.01)
+        )
+        r_power = run_backtest(
+            games, BacktestConfig(devig_method="power", min_edge=0.01)
+        )
         # They can differ in total bets or bankroll — just verify both complete
         assert r_mult.total_games == r_power.total_games == 100
